@@ -28,7 +28,7 @@ const User = new mongoose.Schema({
   password: String,
 });
 
-const Users = mongoose.model("users", User);
+const Users = mongoose.model("DummyData", User);
 
 // ===================================================
 
