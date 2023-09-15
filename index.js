@@ -4,7 +4,8 @@ require("dotenv").config();
 const mongoose = require("mongoose");
 const cors = require("cors");
 const bodyParser = require("body-parser");
-const port = process.env.PORT;
+const port = process.env.PORT || 6000;
+const db = process.env.DATABASE;
 
 // ===================================================
 
@@ -16,7 +17,7 @@ server.use(bodyParser.json());
 main().catch((err) => console.log(err));
 
 async function main() {
-  await mongoose.connect("mongodb://127.0.0.1:27017/Name");
+  await mongoose.connect(db);
   console.log("MongoDb Connect Successfully");
 }
 
@@ -27,7 +28,7 @@ const User = new mongoose.Schema({
   password: String,
 });
 
-const Users = mongoose.model("CURD", User);
+const Users = mongoose.model("userdatas", User);
 
 // ===================================================
 
